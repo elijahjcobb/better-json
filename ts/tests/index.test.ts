@@ -65,3 +65,18 @@ test("4", (): void => {
 	expect(obj2.security.pepper.toString("utf8")).toEqual(obj.security.pepper.toString("utf8"));
 
 });
+
+test("null or undefined", (): void => {
+  const obj = {
+    name: "Elijah",
+    age: 21,
+    info: {
+      color: null,
+      height: undefined
+    }
+  };
+  const str: string = BetterJSON.stringify(obj);
+  const obj2: object = BetterJSON.parse(str);
+
+  expect(obj).toEqual(obj2);
+});

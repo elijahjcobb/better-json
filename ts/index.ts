@@ -20,6 +20,9 @@ export abstract class BetterJSON {
 			}
 
 			// @ts-ignore
+			if (obj[key] === null || obj[key] === undefined) continue;
+
+			// @ts-ignore
 			if (typeof obj[key] === "object") obj[key] = this.parseObject(obj[key]);
 
 		}
